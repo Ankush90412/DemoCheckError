@@ -24,9 +24,6 @@ jobs:
       - name: Install Composer dependencies
         run: composer install
 
-      - name: Install WordPress Coding Standards
-        run: npm install --global @wordpress/coding-standards
-
       - name: Check WordPress Coding Standards
         run: |
           phpcs --standard=WordPress-Core --extensions=php .
