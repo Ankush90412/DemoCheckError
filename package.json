@@ -8,7 +8,7 @@
     "author": "Ankush",
     "license": "MIT",
     "devDependencies": {
-      "@wordpress/coding-standards": "^X.Y.Z"
+      "@wordpress/coding-standards": "^3.0.0"
     }
   }
   
