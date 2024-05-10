@@ -25,7 +25,7 @@ jobs:
         run: composer install
 
       - name: Install WordPress Coding Standards
-        run: npm install --global git+https://github.com/WordPress/WordPress-Coding-Standards.git
+        run: npm install --global https://github.com/WordPress/WordPress-Coding-Standards.git
 
       - name: Check WordPress Coding Standards
         run: |
