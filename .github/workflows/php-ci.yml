@@ -25,7 +25,7 @@ jobs:
         run: composer install
 
       - name: Install WordPress Coding Standards
-        run: npm install --global @wordpress-coding-standards
+        run: npm install --global @wordpress/coding-standards
 
 
       - name: Check WordPress Coding Standards
