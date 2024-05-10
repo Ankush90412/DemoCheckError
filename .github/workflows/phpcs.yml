@@ -20,7 +20,8 @@ jobs:
 
       - name: Install WordPress Coding Standards globally
         run: |
-          npm install --global @wordpress/coding-standards
+          npm install --global @wordpress/coding-standards@<version>
+
 
       - name: Verify WordPress Coding Standards installation
         run: |
