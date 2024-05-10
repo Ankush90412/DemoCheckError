@@ -26,4 +26,4 @@ jobs:
 
       - name: Run CodeSniffer
         run: |
-          ./PHP_CodeSniffer/bin/phpcs --standard=WordPress .
+          ./PHP_CodeSniffer/bin/phpcs --standard=PSR12 .
