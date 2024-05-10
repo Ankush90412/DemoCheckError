@@ -1,14 +1,18 @@
 {
-    "name": "install-wordpress-coding-standards",
+    "name": "github-actions",
     "version": "1.0.0",
-    "description": "Script to install WordPress Coding Standards globally",
+    "description": "GitHub Actions pipeline to install WordPress Coding Standards",
     "scripts": {
       "install-coding-standards": "npm install --global @wordpress/coding-standards"
     },
-    "author": "Ankush",
+    "author": "ankush",
     "license": "MIT",
     "devDependencies": {
       "@wordpress/coding-standards": "^3.0.0"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Ankush90412/DemoCheckError"
     }
   }
   
