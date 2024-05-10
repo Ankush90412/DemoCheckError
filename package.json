@@ -1,4 +1,14 @@
 {
-    "name": "simple",
-    "main": "app.js"
-}
+    "name": "install-wordpress-coding-standards",
+    "version": "1.0.0",
+    "description": "Script to install WordPress Coding Standards globally",
+    "scripts": {
+      "install-coding-standards": "npm install --global @wordpress/coding-standards"
+    },
+    "author": "Ankush",
+    "license": "MIT",
+    "devDependencies": {
+      "@wordpress/coding-standards": "^X.Y.Z"
+    }
+  }
+  
