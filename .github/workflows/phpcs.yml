@@ -1,14 +1,12 @@
-name: WordPress CI
+name: Code Review
 
 on:
   push:
     branches:
-      - main  # Change this to your main branch name
-      - dev  # Optionally add other branches to trigger the workflow
+      - main  # Adjust the branch name as needed
 
 jobs:
-  code-quality:
-    name: Code Quality Checks
+  code-review:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,19 +16,14 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
-          extensions: mbstring, zip, curl  # Add necessary PHP extensions
+          php-version: '7.4'  # Adjust the PHP version as needed
 
-      - name: Install Composer dependencies
-        run: composer install
-
-      - name: Install WordPress Coding Standards
-        run: npm install --global https://registry.npmjs.org/
-
-      - name: Check WordPress Coding Standards
+      - name: Install PHP_CodeSniffer
         run: |
-          phpcs --standard=WordPress-Core --extensions=php .
+          git clone https://github.com/squizlabs/PHP_CodeSniffer.git
+          cd PHP_CodeSniffer
+          composer install
 
-      - name: Check PHP Syntax
+      - name: Run CodeSniffer
         run: |
-          find . -name "*.php" -print0 | xargs -0 -n1 php -l
+          ./PHP_CodeSniffer/bin/phpcs --standard=WordPress .
