@@ -1,29 +1,19 @@
-name: Code Review
+on: pull_request
 
-on:
-  push:
-    branches:
-      - main  # Adjust the branch name as needed
-
+name: Inspections
 jobs:
-  code-review:
+  runPHPCSInspection:
+    name: Run PHPCS inspection
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '7.4'  # Adjust the PHP version as needed
-
-      - name: Install PHP_CodeSniffer
-        run: |
-          git clone https://github.com/squizlabs/PHP_CodeSniffer.git
-          cd PHP_CodeSniffer
-          composer install
-
-      - name: Run CodeSniffer
-        run: |
-          ./PHP_CodeSniffer/bin/phpcs --standard=PSR12 .
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+    - name: Run PHPCS inspection
+      uses: rtCamp/action-phpcs-code-review@v3
+      env:
+        GH_BOT_TOKEN: ${{ secrets.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 }}
+        SKIP_FOLDERS: "tests,.github"
+        PHPCS_SNIFFS_EXCLUDE: "WordPress.Files.FileName"
+      with:
+        args: "WordPress,WordPress-Core,WordPress-Docs"
